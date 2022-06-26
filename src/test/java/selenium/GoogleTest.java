@@ -22,15 +22,24 @@ public class GoogleTest {
 
     @Test
     public void googleTest() throws InterruptedException {
-        System.setProperty("webdriver.chrome.driver","C:/Users/CMDQ1/IdeaProjects/WebDrivers/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","src/test/resources/chromedriver.exe");
         driver = new ChromeDriver();
+
+        // Navigate to Google search web page
         driver.navigate().to(properties.getProperty("url"));
+
+        // Maximize google chrome window
         driver.manage().window().maximize();
 
+        // Enter search word in the google search text area
         driver.findElement(By.xpath("/html/body/div[1]/div[3]/form/div[1]/div[1]/div[1]/div/div[2]/input")).sendKeys(properties.getProperty("name"));
         driver.findElement(By.xpath("/html/body/div[1]/div[3]/form/div[1]/div[1]/div[1]/div/div[2]/input")).sendKeys(properties.getProperty("surname"));
+
+        // Click on the search button
         driver.findElement(By.xpath("/html/body/div[1]/div[3]/form/div[1]/div[1]/div[3]/center/input[1]")).click();
         Thread.sleep(3000);
+
+        // Close google window when test is complete
         driver.close();
 
     }
