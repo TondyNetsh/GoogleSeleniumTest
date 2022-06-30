@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReadCSV {
-
     public static void main(String... args) {
         List<NamesDto> names = readNamesFromCSV("src/test/resources/names.csv");
 
@@ -40,7 +39,7 @@ public class ReadCSV {
                 // the file, using a comma as the delimiter
                 String[] attributes = line.split(",");
 
-                NamesDto name = createBook(attributes);
+                NamesDto name = createNames(attributes);
 
                 // adding name into ArrayList
                 names.add(name);
@@ -57,7 +56,7 @@ public class ReadCSV {
         return names;
     }
 
-    private static NamesDto createBook(String[] metadata) {
+    private static NamesDto createNames(String[] metadata) {
         String id = metadata[0];
         String description = metadata[1];
         String name = metadata[2];
