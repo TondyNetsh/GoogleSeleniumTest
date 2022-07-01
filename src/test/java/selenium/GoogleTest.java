@@ -38,17 +38,13 @@ public class GoogleTest {
         for(int i = 1; i < names.size(); i++) {
             // Navigate to Google search web page
             driver.navigate().to(properties.getProperty("url"));
-            if (i != 1) {
-                driver.switchTo().newWindow(WindowType.TAB);
-                driver.navigate().to(properties.getProperty("url"));
-            }
+//            if (i != 1) {
+//                driver.switchTo().newWindow(WindowType.TAB);
+//                driver.navigate().to(properties.getProperty("url"));
+//            }
 
             // Enter search word in the Google search text area
-            driver.findElement(By.xpath(properties.getProperty("searchBox"))).sendKeys(names.get(i).getFirstName() + " " + names.get(i).getLastName());
-
-            // Click on the html body to clear auto suggestions
-            driver.findElement(By.xpath(properties.getProperty("htmlBody"))).click();
-            Thread.sleep(7000);
+            driver.findElement(By.xpath(properties.getProperty("searchBox"))).sendKeys(names.get(i).getFirstName() + " " + names.get(i).getLastName() + "\t");
 
             // Click on the search button
             driver.findElement(By.xpath(properties.getProperty("searchBtn"))).click();
