@@ -25,7 +25,7 @@ public class GoogleTest {
 
         names = ReadCSV.readNamesFromCSV("src/test/resources/names.csv");
 
-        System.out.println(names);
+        //System.out.println(names);
     }
 
     @Test
@@ -47,7 +47,9 @@ public class GoogleTest {
             driver.findElement(By.xpath(properties.getProperty("searchBox"))).sendKeys(names.get(i).getFirstName() + " " + names.get(i).getLastName() + "\t");
 
             // Click on the search button
+            Thread.sleep(4000);
             driver.findElement(By.xpath(properties.getProperty("searchBtn"))).click();
+            Thread.sleep(3000);
         }
         // Close google window when test is complete
         Thread.sleep(5000);
