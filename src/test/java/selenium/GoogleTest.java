@@ -55,14 +55,14 @@ public class GoogleTest {
             try{
                 // Navigate to Google search web page
                 driver.navigate().to(props.getProperty("url"));
-                test.log(Status.PASS,"Navigate to Google search page " + " " + names.get(i).getFirstName() + " " + names.get(i).getLastName(),
+                test.log(Status.PASS,"Navigate to Google search page ",
                         MediaEntityBuilder.createScreenCaptureFromPath(takeScreenshot(driver, props.getProperty("screenshotPath")+"Img"+System.nanoTime()+".png")).build());
 
 
                 // Enter search word in the Google search text area
                 Thread.sleep(2000);
                 driver.findElement(By.xpath(props.getProperty("searchBox"))).sendKeys(names.get(i).getFirstName() + " " + names.get(i).getLastName() + "\t");
-                test.log(Status.PASS,"Enter first name and last name in the search box " + " " + names.get(i).getFirstName() + " " + names.get(i).getLastName(),
+                test.log(Status.PASS,"Enter first name and last name in the search box: " + " " + names.get(i).getFirstName() + " " + names.get(i).getLastName(),
                         MediaEntityBuilder.createScreenCaptureFromPath(takeScreenshot(driver, props.getProperty("screenshotPath")+"Img"+System.nanoTime()+".png")).build());
 
                 // Click on the search button
@@ -76,7 +76,7 @@ public class GoogleTest {
 
                 if (body.contains("About")) {
                     // Pass
-                    test.log(Status.PASS,"Search result found",
+                    test.log(Status.PASS,"Search result found for " + names.get(i).getFirstName() + " " + names.get(i).getLastName(),
                             MediaEntityBuilder.createScreenCaptureFromPath(takeScreenshot(driver, props.getProperty("screenshotPath")+"Img"+System.nanoTime()+".png")).build());
                 } else {
                     // Fail

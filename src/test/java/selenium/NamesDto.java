@@ -6,6 +6,13 @@ public class NamesDto {
     private String firstName;
     private String lastName;
 
+    public NamesDto(String id, String description, String firstName, String lastName) {
+        this.id = id;
+        this.description = description;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
     public String getId() {
         return id;
     }
@@ -38,10 +45,13 @@ public class NamesDto {
         this.lastName = lastName;
     }
 
-    public NamesDto(String id, String description, String firstName, String lastName) {
-        this.id = id;
-        this.description = description;
-        this.firstName = firstName;
-        this.lastName = lastName;
+    @Override
+    public String toString() {
+        return "NamesDto{" +
+                "id='" + id + '\'' +
+                ", description='" + description + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
     }
 }
