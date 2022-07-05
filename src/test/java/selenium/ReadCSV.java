@@ -25,8 +25,7 @@ public class ReadCSV {
 
         // create an instance of BufferedReader
         // using try with resource, Java 7 feature to close resources
-        try (BufferedReader br = Files.newBufferedReader(pathToFile,
-                StandardCharsets.US_ASCII)) {
+        try (BufferedReader br = Files.newBufferedReader(pathToFile,StandardCharsets.US_ASCII)) {
 
             // read the first line from the csv file
             String line = br.readLine();
